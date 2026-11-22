@@ -1,0 +1,262 @@
+{
+  "settings": {
+    "max_new_tokens": 220,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "model": "SmolLM2-360M-Instruct-ONNX q4"
+  },
+  "results": [
+    {
+      "task": "person",
+      "free": {
+        "text": "{\n  \"name\": \"Your name here\",\n  \"age\": 25,\n  \"hobbies\": [\"Running\", \"Gardening\", \"Reading\"]\n}",
+        "n_tokens": 36,
+        "seconds": 1.92,
+        "tok_per_s": 18.8,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": true
+      },
+      "constrained": {
+        "text": "{\n  \"name\": \"Your name here\",\n  \"age\": 25,\n  \"hobbies\": [\"Running\", \"Gardening\", \"Reading\"]\n}",
+        "n_tokens": 36,
+        "seconds": 2.44,
+        "tok_per_s": 14.7,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": true
+      }
+    },
+    {
+      "task": "product",
+      "free": {
+        "text": "{\n  \"title\": \"Your Product Title\",\n  \"price\": 10.99,\n  \"in_stock\": true,\n  \"tags\": [\"Hobby\", \"Game\", \"Art\", \"CD\"]\n}",
+        "n_tokens": 49,
+        "seconds": 2.78,
+        "tok_per_s": 17.6,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": true
+      },
+      "constrained": {
+        "text": "{\n  \"title\": \"Your Product Title\",\n  \"price\": 10.99,\n  \"in_stock\": true,\n  \"tags\": [\"Hobby\", \"Game\", \"Art\", \"CD\"]\n}",
+        "n_tokens": 49,
+        "seconds": 2.8,
+        "tok_per_s": 17.5,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": true
+      }
+    },
+    {
+      "task": "address",
+      "free": {
+        "text": "{\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"New York\",\n    \"zip_code\": \"10000\",\n    \"country\": \"US\"\n  }\n}",
+        "n_tokens": 49,
+        "seconds": 2.78,
+        "tok_per_s": 17.6,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"New York\",\n    \"zip_code\": \"10000\",\n    \"country\": \"US\"\n  }\n}",
+        "n_tokens": 49,
+        "seconds": 3.15,
+        "tok_per_s": 15.6,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "event",
+      "free": {
+        "text": "{\n  \"title\": \"New Event History: [Event Details], [Date], [Location]\",\n  \"date\": [[\", \". Join with \", \"]](formatted_date), [\". Join with \", \"] ]\n  ,\n  \"attendees\": [\n    {\"name\": [[\"[\"join with \", \"]](formatted_name)\"], [\"[\"join with \", \"]](formatted_info)\"], \"height\": [[\"[\"join with \"]\"]](formatted_hheight)\n  ]}\n}",
+        "n_tokens": 108,
+        "seconds": 6.24,
+        "tok_per_s": 17.3,
+        "stopped_by": "eos",
+        "json_valid": false,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"title\": \"New Event History: [Event Details], [Date], [Location]\",\n  \"date\": \" [Date]\",\n  \"location\": \" [Location]\",\n  \"attendees\": [\n    {\n      \"name\": [ \"<NAME>\", \"<NAME>\", \"<NAME>\" ],\n      \"contact\": [ \"<EMAIL> \", \"<EMAIL> \", \"<EMAIL>\" ]\n    }\n  ]\n}",
+        "n_tokens": 83,
+        "seconds": 5.35,
+        "tok_per_s": 15.5,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "recipe",
+      "free": {
+        "text": "{\n  \"recipe\": {\n    \"name\": \"Frozen Beef Brownies with Spring Roll Rolls\",\n    \"prep_minutes\": 30,\n    \"ingredients\": [\n      \"2 cans (15 oz) ground beef\",\n      \"1 package of Bananaiere Fettuccine (or Extra Large), cooked and cooled\",\n      \"2 cups non-stick vegetable oil\",\n      \"1/2 cup all-purpose, shredded cheddar\",\n      \"1/2 teaspoon salt, freshly ground\"\n    ],\n    \"vegetarian\": true\n  }\n}",
+        "n_tokens": 119,
+        "seconds": 6.93,
+        "tok_per_s": 17.2,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"recipe\": {\n    \"name\": \"Frozen Beef Brownies with Spring Roll Rolls\",\n    \"prep_minutes\": 30,\n    \"ingredients\": [\n      \"2 cans (15 oz) ground beef\",\n      \"1 package of Bananaiere Fettuccine (or Extra Large), cooked and cooled\",\n      \"2 cups non-stick vegetable oil\",\n      \"1/2 cup all-purpose, shredded cheddar cheese\",\n      \"1/4 cup mayonnaise\",\n      \"1 egg, lightly beaten\",\n      \"6 tablespoons unsalted butter\",\n      \"1/4 cup white wine\",\n      \"2 tablespoons soy sauce, divided\",\n      \"1 tablespoon minced garlic\",\n      \"1/2 teaspoon chopped fresh parsley\",\n      \"1 cup sliced mushrooms\",\n      \"1/2 cup shredded, mixed green* (depending on taste) and taste\"\n    ],\n    \"vegetarian\": true\n  }\n}",
+        "n_tokens": 196,
+        "seconds": 12.12,
+        "tok_per_s": 16.2,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "book",
+      "free": {
+        "text": "{ \"book\": {\n        \"title\": \"Genre of Your Choice - This Book\",\n        \"author\": \"Genre of Your Choice - This Book\",\n        \"year\": 2023,\n        \"genres\": [\"This Book is about Genre of Your Choice - This Book.\", \"This Book is about Genre of Your Choice - This Book.\"]\n    }",
+        "n_tokens": 79,
+        "seconds": 4.45,
+        "tok_per_s": 17.7,
+        "stopped_by": "eos",
+        "json_valid": false,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{ \"book\": {\n        \"title\": \"Ender's Game\",\n        \"author\": \"Ender T.,\"\n        }\n}",
+        "n_tokens": 29,
+        "seconds": 1.65,
+        "tok_per_s": 17.5,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "review",
+      "free": {
+        "text": "{\n  \"movie_review\": {\n    \"movie\": \"A superhero movie with excellent visuals.\",\n    \"rating\": 9,\n    \"recommend\": true,\n    \"comment\": \"A great movie to enjoy!\"\n  }\n}",
+        "n_tokens": 49,
+        "seconds": 2.79,
+        "tok_per_s": 17.5,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"movie_review\": {\n    \"movie\": \"A superhero movie with excellent visuals.\",\n    \"rating\": 9,\n    \"recommend\": true,\n    \"comment\": \"A great movie to enjoy!\"\n  }\n}",
+        "n_tokens": 49,
+        "seconds": 2.85,
+        "tok_per_s": 17.2,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "order",
+      "free": {
+        "text": "{\n    \"order_id\": \"order_id\",\n    \"lines\": [\n        {\n            \"sku\": \"string\",\n            \"quantity\": \"integer\",\n            \"unit_price\": \"number\"\n        },\n        ...\n    ]\n}",
+        "n_tokens": 51,
+        "seconds": 2.86,
+        "tok_per_s": 17.8,
+        "stopped_by": "eos",
+        "json_valid": false,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n    \"order_id\": \"order_id\",\n    \"lines\": [\n        {\n            \"sku\": \"string\",\n            \"quantity\": \"integer\",\n            \"unit_price\": \"number\"\n        },\n        {\n            \"sku\": \"string\",\n            \"quantity\": \"integer\",\n            \"unit_price\": \"number\"\n        }\n    ]\n}",
+        "n_tokens": 77,
+        "seconds": 4.6,
+        "tok_per_s": 16.7,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "profile",
+      "free": {
+        "text": "{\n    \"id\": 1234567890,\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"age\": 10,\n    \"premium\": true,\n    \"customProfile\": {\n        \"addedAt\": \"2021-01-01 12:34:56\",\n        \"profileColor\": \"blue\"\n    }\n}",
+        "n_tokens": 100,
+        "seconds": 5.72,
+        "tok_per_s": 17.5,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n    \"id\": 1234567890,\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"age\": 10,\n    \"premium\": true,\n    \"customProfile\": {\n        \"addedAt\": \"2021-01-01 12:34:56\",\n        \"profileColor\": \"blue\"\n    }\n}",
+        "n_tokens": 100,
+        "seconds": 5.88,
+        "tok_per_s": 17.0,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "geo",
+      "free": {
+        "text": "{\n  \"name\": \"Geographic Point\",\n  \"latitude\": 10,\n  \"longitude\": 11\n}",
+        "n_tokens": 28,
+        "seconds": 1.52,
+        "tok_per_s": 18.4,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": true
+      },
+      "constrained": {
+        "text": "{\n  \"name\": \"Geographic Point\",\n  \"latitude\": 32.2345,\n  \"longitude\": -103.1231\n}",
+        "n_tokens": 39,
+        "seconds": 2.25,
+        "tok_per_s": 17.4,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": true
+      }
+    },
+    {
+      "task": "playlist",
+      "free": {
+        "text": "{\n  \"Name\": \"My Playlist\",\n  \"Tracks\": [\n    \"Track 1\",\n    \"Track 2\",\n    \"Track 3\"\n  ],\n  \"Public\": true\n}",
+        "n_tokens": 43,
+        "seconds": 2.39,
+        "tok_per_s": 18.0,
+        "stopped_by": "eos",
+        "json_valid": true,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"Name\": \"My Playlist\",\n  \"Tracks\": [\n    \"Track 1\",\n    \"Track 2\",\n    \"Track 3\"\n  ],\n  \"Public\": true\n}",
+        "n_tokens": 43,
+        "seconds": 2.52,
+        "tok_per_s": 17.1,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    },
+    {
+      "task": "invoice",
+      "free": {
+        "text": "{\n  \"invoice_no\": <input>,\n  \"amount\": <number>,\n  \"currency\": <string>,\n  \"paid\": <boolean>,\n}",
+        "n_tokens": 34,
+        "seconds": 1.93,
+        "tok_per_s": 17.6,
+        "stopped_by": "eos",
+        "json_valid": false,
+        "schema_valid": false
+      },
+      "constrained": {
+        "text": "{\n  \"invoice_no\": 1234567890,\n  \"amount\": 1234567890,\n  \"currency\": \"USD\",\n  \"paid\": true\n}",
+        "n_tokens": 50,
+        "seconds": 2.89,
+        "tok_per_s": 17.3,
+        "stopped_by": "grammar-complete",
+        "json_valid": true,
+        "schema_valid": false
+      }
+    }
+  ]
+}
