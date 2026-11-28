@@ -4,8 +4,10 @@ At each decoding step the sampler asks the masker which vocabulary tokens
 may come next. A token is allowed iff the parser could consume the token's
 entire surface text from its current state (the token may end mid-terminal,
 e.g. inside a string or in the middle of `null`). When the parser accepts
-the document as complete, EOS is the single allowed token, so generation
-stops cleanly instead of trailing off.
+the document as complete, EOS joins the allowed set, so generation can
+always stop cleanly instead of trailing off. EOS is the single allowed
+token once no continuation remains; a completed number can still grow
+('1' -> '12'), so there EOS competes with digit tokens.
 
 Results are cached by parser-state signature, so each distinct grammar
 state pays the vocab scan once per process.
